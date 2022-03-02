@@ -1,5 +1,6 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-    WebDriver driver = firefoxDriver();
+    WebDriver driver = chromeDriver();
 
     driver.get("http://google.com");
 
@@ -25,12 +26,15 @@ public class Main {
   }
 
   public static WebDriver firefoxDriver() {
+    WebDriverManager.firefoxdriver().setup();
     return new FirefoxDriver();
   }
 
   public static WebDriver chromeDriver() {
     ChromeOptions options = new ChromeOptions();
     options.setBinary("/usr/bin/brave-browser");
+
+    WebDriverManager.chromedriver().setup();
     return new ChromeDriver(options);
   }
 
