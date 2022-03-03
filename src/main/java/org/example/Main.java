@@ -13,8 +13,13 @@ public class Main {
 
   public static void main(String[] args) {
 
-    WebDriver driver = chromeDriver();
+    WebDriver driver = firefoxDriver();
 
+    // testGoogle(driver);
+    testSeleniumDev(driver);
+  }
+
+  private static void testGoogle(WebDriver driver) {
     driver.get("http://google.com");
 
     // document.getElementsByName("q")[0]
@@ -25,16 +30,28 @@ public class Main {
     searchBox.sendKeys(Keys.ENTER);
   }
 
+  public static void testSeleniumDev(WebDriver driver) {
+    driver.get("https://selenium.dev");
+    WebElement blog = driver.findElement(By.linkText("Blog"));
+    blog.click();
+
+    WebElement link2016 = driver.findElement(By.id("m-blog2016"));
+    link2016.click();
+
+    WebElement element = driver.findElement(By.linkText("Fall Selenium Conf, Save the Date & Call for Speakers!"));
+    element.click();
+  }
+
+
   public static WebDriver firefoxDriver() {
     WebDriverManager.firefoxdriver().setup();
     return new FirefoxDriver();
   }
 
   public static WebDriver chromeDriver() {
+    WebDriverManager.chromedriver().setup();
     ChromeOptions options = new ChromeOptions();
     options.setBinary("/usr/bin/brave-browser");
-
-    WebDriverManager.chromedriver().setup();
     return new ChromeDriver(options);
   }
 
