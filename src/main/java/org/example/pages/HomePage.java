@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-  private WebDriver driver;
+  WebDriver driver;
 
   @FindBy(id = "checkboxLink")
   WebElement checkboxLink;
@@ -23,7 +23,7 @@ public class HomePage {
     PageFactory.initElements(driver, this);
   }
 
-  public void navigate() {
+  public void gotoHome() {
     driver.get("http://localhost:8082");
   }
 
@@ -35,16 +35,4 @@ public class HomePage {
     radioLink.click();
   }
 
-//  public void navigateTo(String page) {
-//    if(page.equals("checkbox-page")) {
-//      checkboxLink.click();
-//    }
-//    if(page.equals("radio-page")) {
-//      radioLink.click();
-//    }
-//    if(page.equals("select-page")) {
-//      selectLink.click();
-//    }
-//
-//  }
 }
