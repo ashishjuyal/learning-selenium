@@ -34,6 +34,11 @@ public class CheckboxTest {
     checkboxLink.click();
   }
 
+  @After
+  public void closeBrowser() {
+    driver.quit();
+  }
+
   @Test
   public void test_lettuce_checkbox_selected() {
     WebElement lettuce = driver.findElement(By.id("lettuceCheckbox"));
@@ -51,9 +56,5 @@ public class CheckboxTest {
     assertEquals("Loading complete...", msg.getText());
   }
 
-  @After
-  public void closeBrowser() {
-    driver.quit();
-  }
 
 }
