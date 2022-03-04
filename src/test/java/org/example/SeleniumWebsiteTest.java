@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,10 +9,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
 
-public class Test {
+public class SeleniumWebsiteTest {
 
-
-  @org.junit.Test
+  @Test
   public void test_selenium_dot_dev_blog() {
     WebDriverManager.firefoxdriver().setup();
 
